@@ -10,7 +10,9 @@ module.exports = mongoose.model('Todo', {
     value: {
         type: String,
         default: ''
+    },
+    username:{
+        
     }
-
 
 });

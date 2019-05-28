@@ -33,7 +33,10 @@
 
 		<!-- HEADER AND TODO COUNT -->
 		<div class="jumbotron text-center">
-			<h1>Hi let us make an app for banks<span class="label label-info">{{ todos.length }}</span></h1>
+			<!--<h1>Hi let us make an app for banks<span class="label label-info">{{ todos.length }}</span></h1>-->
+			<input type="text" class="form-control input-lg text-center" placeholder="account" ng-model="user.account">
+			<input type="password" class="form-control " placeholder="password" ng-model="user.password">
+			<button type="submit" class="btn btn-primary btn-lg" ng-click="registerAccount()">Register</button>
 		</div>
 
 		<!-- TODO LIST -->
