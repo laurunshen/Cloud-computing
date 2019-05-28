@@ -11,8 +11,12 @@ module.exports = mongoose.model('Todo', {
         type: String,
         default: ''
     },
-    username:{
-        
+    account:{
+        type:String,
+        default:""
+    },
+    password:{
+        type:String,
+        default:""
     }
-
 });
