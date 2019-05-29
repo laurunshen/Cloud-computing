@@ -70,7 +70,7 @@ angular.module('todoController', [])
 				$scope.loading = true;
 				var dataForm={
 					"account":name[0].account,
-					"deposit":deposit
+					"deposit":deposit_money
 				}
 				// call the create function from our service (returns a promise object)
 				Todos.create(dataForm)
