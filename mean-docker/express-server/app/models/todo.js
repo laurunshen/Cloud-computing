@@ -15,7 +15,7 @@ module.exports = mongoose.model('Todo', {
         default:""
     },
     balance:{
-        type:double,
+        type:Double,
         default:0
     }
 });
