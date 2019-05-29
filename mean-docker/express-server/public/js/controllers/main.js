@@ -62,7 +62,7 @@ angular.module('todoController', [])
 
 		};
 		//存款
-		$scope.register = function() {
+		$scope.deposit = function() {
 
 			// validate the formData to make sure that something is there
 			// if form is empty, nothing will happen

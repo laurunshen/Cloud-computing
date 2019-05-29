@@ -25,7 +25,7 @@ function getAccount(account,res){
 function updateBalance(account,deposit,res){
     var whereStr={"account":account};
     var Account=Todo.find(whereStr);
-    var balance=Account[0].balance+deposit;
+    var balance=Account[0].balance+parseFloat(deposit);
     var set={$set:{balance:balance}};
     Todo.update(whereStr,set,function(err,todos){
         if(err){
