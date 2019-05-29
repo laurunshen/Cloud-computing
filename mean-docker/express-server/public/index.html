@@ -34,10 +34,11 @@
 		<!-- HEADER AND TODO COUNT -->
 		<div class="jumbotron text-center">
 			<!--<h1>Hi let us make an app for banks<span class="label label-info">{{ todos.length }}</span></h1>-->
-			<span>{{ name }}</span>
-			<div>账号:{{ name[0].account }}</div>
-			<div>姓名:{{ name[0].name }}</div>
-			<div>余额:{{ name[0].balance }}</div>
+			<div>账号:{{ name.account }}</div>
+			<div>姓名:{{ name.name }}</div>
+			<div>余额:{{ name.balance }}</div>
+			<input type="text" class="text-center" placeholder="输入存款金额" ng-model="deposit">
+			<button type="submit" class="btn btn-primary btn-lg" ng-click="deposit()">存款</button>
 		</div>
 
 		<!-- TODO LIST -->

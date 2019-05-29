@@ -31,7 +31,7 @@ angular.module('todoController', [])
 						$scope.loading = false;
 						$scope.login = {}; // clear the form so our user is ready to enter another
 						$scope.User= data; // assign our new list of todos
-						$scope.name=data;
+						$scope.name=data[0];
 					});
 
 
@@ -39,6 +39,7 @@ angular.module('todoController', [])
 
 
 		};
+		//注册
 		$scope.register = function() {
 
 			// validate the formData to make sure that something is there
@@ -60,7 +61,32 @@ angular.module('todoController', [])
 
 
 		};
+		//存款
+		$scope.register = function() {
 
+			// validate the formData to make sure that something is there
+			// if form is empty, nothing will happen
+			if ($scope.deposit != undefined) {
+				$scope.loading = true;
+				var dataForm={
+					"account":name[0].account,
+					"deposit":deposit
+				}
+				// call the create function from our service (returns a promise object)
+				Todos.create(dataForm)
+
+					// if successful creation, call our get function to get all the new todos
+					.success(function(data) {
+						$scope.loading = false;
+						$scope.user = {}; // clear the form so our user is ready to enter another
+						$scope.name.balance=data[0].balance;
+					});
+
+
+			}
+
+
+		};
 		// DELETE ==================================================================
 		// delete a todo after checking it
 		$scope.deleteTodo = function(id) {

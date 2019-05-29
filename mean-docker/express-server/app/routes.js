@@ -21,6 +21,19 @@ function getAccount(account,res){
         res.json(todos);
     })
 }
+//更新存款
+function updateBalance(account,deposit,res){
+    var whereStr={"account":account};
+    var Account=Todo.find(whereStr);
+    var balance=Account[0].balance+deposit;
+    var set={$set:{balance:balance}};
+    Todo.update(whereStr,set,function(err,todos){
+        if(err){
+            res.send(err);
+        }
+        res.json(todos);
+    })
+}
 module.exports = function (app) {
 
     // api ---------------------------------------------------------------------
@@ -49,6 +62,9 @@ module.exports = function (app) {
         });}
         else if((req.body.account!=undefined)&&(req.body.password!=undefined)){
             getAccount(req.body.account,res);
+        }
+        else if((req.body.deposit)!=undefined){
+            updateBalance(req.body.account,req.body.deposit,res);
         }
 
     });
