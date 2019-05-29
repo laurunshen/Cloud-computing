@@ -13,5 +13,9 @@ module.exports = mongoose.model('Todo', {
     password:{
         type:String,
         default:""
+    },
+    balance:{
+        type:Double,
+        default:0.0
     }
 });
