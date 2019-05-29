@@ -11,7 +11,16 @@ function getTodos(res) {
         res.json(todos); // return all todos in JSON format
     });
 };
-
+// 条件查询
+function getAccount(account,res){
+    var whereStr={"account":account};
+    Todo.find(whereStr,function(err,todos){
+        if(err){
+            res.send(err);
+        }
+        res.json(todos);
+    })
+}
 module.exports = function (app) {
 
     // api ---------------------------------------------------------------------
@@ -25,6 +34,7 @@ module.exports = function (app) {
     app.post('/api/todos', function (req, res) {
 
         // create a todo, information comes from AJAX request from Angular
+        if(req.body.name!=undefined){
         Todo.create({
             account: req.body.account,
             password: req.body.password,
@@ -36,7 +46,10 @@ module.exports = function (app) {
 
             // get and return all the todos after you create another
             getTodos(res);
-        });
+        });}
+        else{
+            getAccount(req.body.account,res);
+        }
 
     });
 
