@@ -33,8 +33,8 @@ module.exports = function (app) {
     // create todo and send back all todos after creation
     app.post('/api/todos', function (req, res) {
 
-        // create a todo, information comes from AJAX request from Angular
-        if(req.body.name!=undefined){
+        // 注册
+        if((req.body.name!=undefined)&&(req.body.account!=undefined)&&(req.body.password!=undefined)){
         Todo.create({
             account: req.body.account,
             password: req.body.password,
@@ -47,7 +47,7 @@ module.exports = function (app) {
             // get and return all the todos after you create another
             getTodos(res);
         });}
-        else{
+        else if((req.body.account!=undefined)&&(req.body.password!=undefined)){
             getAccount(req.body.account,res);
         }
 
