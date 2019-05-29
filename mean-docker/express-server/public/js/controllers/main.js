@@ -52,7 +52,7 @@ angular.module('todoController', [])
 					.success(function(data) {
 						$scope.loading = false;
 						$scope.user = {}; // clear the form so our user is ready to enter another
-				//		$scope.todos = data; // assign our new list of todos
+						$scope.name = data; // assign our new list of todos
 					});
 
 
