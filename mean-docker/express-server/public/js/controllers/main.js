@@ -51,7 +51,7 @@ angular.module('todoController', [])
 					// if successful creation, call our get function to get all the new todos
 					.success(function(data) {
 						$scope.loading = false;
-						$scope.formData = {}; // clear the form so our user is ready to enter another
+						$scope.user = {}; // clear the form so our user is ready to enter another
 				//		$scope.todos = data; // assign our new list of todos
 					});
 
