@@ -30,7 +30,7 @@ angular.module('todoController', [])
 					.success(function(data) {
 						$scope.loading = false;
 						$scope.formData = {}; // clear the form so our user is ready to enter another
-						$scope.user= data; // assign our new list of todos
+						$scope.User= data; // assign our new list of todos
 					});
 
 
