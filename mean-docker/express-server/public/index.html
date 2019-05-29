@@ -35,6 +35,18 @@
 		<div class="jumbotron text-center">
 			<!--<h1>Hi let us make an app for banks<span class="label label-info">{{ todos.length }}</span></h1>-->
 			<label >{{ name }}</label>
+			<div class="content1">
+					<ul>
+						<h>
+							<li>用户名:</li>
+						</h>
+						<br>
+						<hr>
+						<h>
+							<li>余额:</li>
+						</h>
+					</ul>
+				</div>
 		</div>
 
 		<!-- TODO LIST -->
@@ -62,15 +74,15 @@
 					<div class="form-group">
 
 						<!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
-						<input type="text" class="form-control input-lg text-center" placeholder="account" ng-model="user.account">
-						<input type="password" class="form-control text-center " placeholder="password" ng-model="user.password">
-						<input type="text" class="form-control input-lg text-center" placeholder="name" ng-model="user.name">
+						<input type="text" class="text-center" placeholder="account" ng-model="user.account">
+						<input type="password" class="text-center " placeholder="password" ng-model="user.password">
+						<input type="text" class=" text-center" placeholder="name" ng-model="user.name">
 						<button type="submit" class="btn btn-primary btn-lg" ng-click="register()">register</button>
 					</div>
 
 					<!-- createToDo() WILL CREATE NEW TODOS -->
-					<input type="text" class="form-control input-lg text-center" placeholder="account" ng-model="login.account">
-					<input type="password" class="form-control text-center " placeholder="password" ng-model="login.password">
+					<input type="text" class="text-center" placeholder="account" ng-model="login.account">
+					<input type="password" class="text-center " placeholder="password" ng-model="login.password">
 					<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">login</button>
 					
 				</form>
