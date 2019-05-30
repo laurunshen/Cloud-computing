@@ -73,14 +73,12 @@ angular.module('todoController', [])
 					"account":$scope.iuser.account,
 					"balance":$scope.iuser.balance+parseFloat($scope.deposit_money)
 				};
-				$scope.type=typeof($scope.iuser.balance)+" "+typeof(dataForm.balance);
-				$scope.test=dataForm
 				Todos.create(dataForm)
 					// if successful creation, call our get function to get all the new todos
 					.success(function(data) {
 						$scope.loading = false;
 						$scope.iuser=data[0];
-						$scope.deposit_money ={}; // clear the form so our user is ready to enter another
+						$scope.deposit_money =undefined; // clear the form so our user is ready to enter another
 					});
 			}
 		};
