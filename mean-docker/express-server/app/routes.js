@@ -55,7 +55,9 @@ module.exports = function (app) {
             getTodos(res);
         });}
         else if((req.body.trans_money!=undefined)&&(req.body.trans_account!=undefined)){
-            updateBalance(req.body.account,req.body.balance);
+            //updateBalance(req.body.account,req.body.balance);
+            Todo.findOne({"account":req.body.account});
+            updateBalance(Todo.account,20);
             getAccount(req.body.account,res);
         }
         else if((req.body.account!=undefined)&&(req.body.password!=undefined)){
