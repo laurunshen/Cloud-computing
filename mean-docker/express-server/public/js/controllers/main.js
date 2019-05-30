@@ -68,12 +68,9 @@ angular.module('todoController', [])
 			// if form is empty, nothing will happen
 			if ($scope.deposit != undefined) {
 				$scope.loading = true;
-				var dataForm={
-					"account":name.account,
-					"deposit":deposit_money
-				}
 				// call the create function from our service (returns a promise object)
-				test=dataForm;
+				var dataForm=name;
+				dataForm.account+=deposit_money;
 				Todos.create(dataForm)
 					// if successful creation, call our get function to get all the new todos
 					.success(function(data) {

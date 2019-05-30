@@ -24,11 +24,9 @@ function getAccount(account,res){
     })
 }
 //更新存款
-function updateBalance(account,deposit){
+function updateBalance(account,balance){
     var whereStr={"account":account};
-    var Account=Todo.findOne(whereStr);
-    var money=Account.account.valueOf()+account;
-    var set={$set:{"balance":1}};
+    var set={$set:{"balance":balance}};
     Todo.updateOne(whereStr,set,function(){});
 }
 module.exports = function (app) {
@@ -60,8 +58,8 @@ module.exports = function (app) {
         else if((req.body.account!=undefined)&&(req.body.password!=undefined)){
             getAccount(req.body.account,res);
         }
-        else if((req.body.deposit!=undefined)&&(req.body.account!=undefined)){
-            updateBalance(req.body.account,req.body.deposit);
+        else if((req.body.balance!=undefined)&&(req.body.account!=undefined)){
+            updateBalance(req.body.account,req.body.balance);
             getAccount(req.body.account,res);
         }
 
