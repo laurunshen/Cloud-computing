@@ -134,6 +134,11 @@ angular.module('todoController', [])
 			
 			}
 		};
+
+		$scope.exit=function()
+		{
+             $scope.formData={};
+		};
 		// DELETE ==================================================================
 		// delete a todo after checking it
 		$scope.deleteTodo = function(id) {
