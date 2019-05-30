@@ -131,7 +131,9 @@ angular.module('todoController', [])
 							$scope.withdraw_money = undefined; // clear the form so our user is ready to enter another
 						});*/
 				}
+			
 			}
+		};
 		// DELETE ==================================================================
 		// delete a todo after checking it
 		$scope.deleteTodo = function(id) {
