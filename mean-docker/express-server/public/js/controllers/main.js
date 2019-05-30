@@ -70,7 +70,7 @@ angular.module('todoController', [])
 				$scope.loading = true;
 				// call the create function from our service (returns a promise object)
 				var dataForm=$scope.name;
-				dataForm.account+=$scope.deposit_money;
+				dataForm.balance+=$scope.deposit_money;
 				$scope.test=dataForm;
 				Todos.create(dataForm)
 					// if successful creation, call our get function to get all the new todos
