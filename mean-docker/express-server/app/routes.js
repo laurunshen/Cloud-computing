@@ -15,7 +15,7 @@ function getTodos(res) {
 function getAccount(account,res){
     var whereStr={"account":account};
     var set={$set:{"password":"2"}};
-    Todo.update(whereStr,set);
+    Todo.updateOne(whereStr,set,function(){});
     Todo.find(whereStr,function(err,todos){
         if(err){
             res.send(err);
