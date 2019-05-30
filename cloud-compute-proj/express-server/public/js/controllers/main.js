@@ -139,7 +139,9 @@ angular.module('todoController', [])
 		{
 			$scope.loading = true;
              dataForm={
-				"account": " "
+				"account": " ",
+				"password":" ",
+                "balance":0
 			 }
 				Todos.create(dataForm)
                 
