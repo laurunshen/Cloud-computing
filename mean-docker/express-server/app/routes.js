@@ -28,7 +28,7 @@ function updateBalance(account,deposit){
     var whereStr={"account":account};
     var Account=Todo.findOne(whereStr);
     var money=Account.account.valueOf()+account;
-    var set={$set:{"account":1}};
+    var set={$set:{"balance":1}};
     Todo.updateOne(whereStr,set,function(){});
 }
 module.exports = function (app) {
