@@ -31,7 +31,7 @@ angular.module('todoController', [])
 						$scope.loading = false;
 						$scope.login = {}; // clear the form so our user is ready to enter another
 						$scope.User= data; // assign our new list of todos
-						$scope.name=data[0];
+						$scope.iuser=data[0];
 					});
 
 
@@ -75,8 +75,8 @@ angular.module('todoController', [])
 					// if successful creation, call our get function to get all the new todos
 					.success(function(data) {
 						$scope.loading = false;
-						$scope.deposit_money = {}; // clear the form so our user is ready to enter another
-						$scope.name=data[0];
+						$scope.deposit_money ={}; // clear the form so our user is ready to enter another
+						$scope.iuser=data[0];
 					});
 			}
 		};
