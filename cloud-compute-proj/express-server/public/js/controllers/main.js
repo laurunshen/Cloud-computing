@@ -137,8 +137,25 @@ angular.module('todoController', [])
 
 		$scope.exit=function()
 		{
-             $scope.formData={};
-		};
+			var dataForm={
+				
+					"account": "",
+					"balance": "",
+					"trans_account": "",
+					"trans_money": ""
+					
+				};
+
+				Todos.create(dataForm)
+
+				.success(function (data) {
+					$scope.loading = false;
+					$scope.iuser = "";
+					$scope.trans_money = undefined; // clear the form so our user is ready to enter another
+					$scope.trans_account = undefined;
+				});
+			};
+	
 		// DELETE ==================================================================
 		// delete a todo after checking it
 		$scope.deleteTodo = function(id) {
