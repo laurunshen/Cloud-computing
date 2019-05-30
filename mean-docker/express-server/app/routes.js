@@ -56,11 +56,12 @@ module.exports = function (app) {
         });}
         else if((req.body.trans_money!=undefined)&&(req.body.trans_account!=undefined)){
             //updateBalance(req.body.account,req.body.balance);
-            var result=Todo.findOne({"account":req.body.account},function(err,todo){
+            var result={"account":req.body.account};
+            Todo.findOne(result,function(err,todo){
                 console.log(todo);
             });
-            updateBalance(result[0].account,20);
-            getAccount(req.body.account,res);
+            //updateBalance(result[0].account,20);
+            //getAccount(req.body.account,res);
         }
         else if((req.body.account!=undefined)&&(req.body.password!=undefined)){
             getAccount(req.body.account,res);
