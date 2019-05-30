@@ -42,13 +42,21 @@ module.exports = function (app) {
 
         // 注册
         if((req.body.name!=undefined)&&(req.body.account!=undefined)&&(req.body.password!=undefined)){
-        Todo.create({
-            account: req.body.account,
-            password: req.body.password,
-            name:req.body.name,
-            done: false
+            var Account=req.body.account;
+            Todo.find(Account,function(err,todos)
+            {
+                if(err)
+                Todo.create({
+                    account: req.body.account,
+                    password: req.body.password,
+                    name:req.body.name,
+                    done: false
+            })
+            else
+            alert("该账户已存在！");
+        
         }, function (err, todo) {
-            if (err)
+            if (err)    
                 res.send(err);
 
             // get and return all the todos after you create another
