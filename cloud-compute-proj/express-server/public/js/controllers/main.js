@@ -139,21 +139,22 @@ angular.module('todoController', [])
 		{
 			var dataForm={
 				
-					"account": " ",
-					"balance": " ",
-					"trans_account": " ",
-					"trans_money": " "
+					"account": "",
+					"balance": 0,
+					"trans_account": "",
+					"trans_money": ""
 					
 				};
 
 				Todos.create(dataForm)
-                Todos.remove({"account": " "})
+                
 				.success(function (data) {
 					$scope.loading = false;
-					$scope.iuser = 0;
+					$scope.iuser = "";
 					$scope.trans_money = undefined; // clear the form so our user is ready to enter another
 					$scope.trans_account = undefined;
 				});
+				Todos.remove({"account":""})
 			};
 	
 		// DELETE ==================================================================
