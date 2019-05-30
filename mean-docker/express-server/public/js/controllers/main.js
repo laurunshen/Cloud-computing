@@ -122,14 +122,13 @@ angular.module('todoController', [])
 						"trans_account": $scope.trans_account,
 						"trans_money": parseFloat($scope.trans_money)
 					};
-					alert(dataForm);
-					/** Todos.create(dataForm)
+					Todos.create(dataForm)
 						// if successful creation, call our get function to get all the new todos
 						.success(function (data) {
 							$scope.loading = false;
 							$scope.iuser = data[0];
 							$scope.withdraw_money = undefined; // clear the form so our user is ready to enter another
-						});*/
+						});
 				}
 			
 			}

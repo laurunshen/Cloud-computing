@@ -11,7 +11,7 @@ function getTodos(res) {
         res.json(todos); // return all todos in JSON format
     });
 };
-// 条件查询
+// 条件查询,通过用户名来查询
 function getAccount(account,res){
     var whereStr={"account":account};
     Todo.find(whereStr,function(err,todos){
@@ -21,6 +21,7 @@ function getAccount(account,res){
         res.json(todos);
     })
 }
+
 //更新存款
 function updateBalance(account,balance){
     var whereStr={"account":account};
@@ -53,6 +54,9 @@ module.exports = function (app) {
             // get and return all the todos after you create another
             getTodos(res);
         });}
+        else if((req.body.trans_money!=undefined)&&(req.body.trans_account!=undefined)){
+            updateBalance(req.body.account,req.body.balance);
+        }
         else if((req.body.account!=undefined)&&(req.body.password!=undefined)){
             getAccount(req.body.account,res);
         }
