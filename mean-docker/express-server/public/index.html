@@ -41,6 +41,11 @@
 			<button type="submit" class="btn btn-primary btn-lg" ng-click="deposit()">存款</button>
 			<input type="text" class="text-center" placeholder="输入存款金额" ng-model="withdraw_money">
 			<button type="submit" class="btn btn-primary btn-lg" ng-click="withdraw()">取款</button>
+			<div>
+				<input type="text" class="text-center" placeholder="转账账户" ng-model="transition.account">
+				<input type="text" class="text-center" placeholder="转账金额" ng-model="transition.money">
+				<button type="submit" class="btn btn-primary btn-lg" ng-click="transition()">转账</button>
+			</div>
 		</div>
 
 		<!-- TODO LIST -->
