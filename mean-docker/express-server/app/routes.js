@@ -61,7 +61,7 @@ module.exports = function (app) {
             var result={"account":req.body.trans_account};
             Todo.findOne(result,function(err,todo){
                 console.log(todo);
-                console.log(todo.accout);
+                console.log(todo.account);
                 updateBalance(todo.account,todo.balance+req.body.trans_money);
 
             });
