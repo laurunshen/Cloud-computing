@@ -54,11 +54,13 @@ module.exports = function (app) {
             // get and return all the todos after you create another
             getTodos(res);
         });}
+        //转账
         else if((req.body.trans_money!=undefined)&&(req.body.trans_account!=undefined)){
             //updateBalance(req.body.account,req.body.balance);
             updateBalance(req.body.account,req.body.balance);
-            var result={"account":req.body.account};
+            var result={"account":req.body.trans_account};
             Todo.findOne(result,function(err,todo){
+                console.log(todo.accout);
                 updateBalance(todo.account,todo.balance+req.body.trans_money);
 
             });

@@ -109,7 +109,6 @@ angular.module('todoController', [])
 		};
 		//转账
 		$scope.trans= function () {
-			alert("click");
 			if (($scope.trans_money!=undefined)&&($scope.trans_account!=undefined)) {
 
 				if ($scope.trans_money > $scope.iuser.balance) { alert("余额不足"); }
@@ -127,7 +126,8 @@ angular.module('todoController', [])
 						.success(function (data) {
 							$scope.loading = false;
 							$scope.iuser = data[0];
-							$scope.withdraw_money = undefined; // clear the form so our user is ready to enter another
+							$scope.trans_money = undefined; // clear the form so our user is ready to enter another
+							$scope.trans_account = undefined
 						});
 				}
 			
