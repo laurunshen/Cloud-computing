@@ -69,7 +69,7 @@ angular.module('todoController', [])
 			if ($scope.deposit != undefined) {
 				$scope.loading = true;
 				// call the create function from our service (returns a promise object)
-				var dataForm=$scope.user;
+				var dataForm=$scope.iuser;
 				dataForm.balance+=$scope.deposit_money;
 				$scope.test=dataForm
 				Todos.create(dataForm)
