@@ -16,7 +16,8 @@ angular.module('todoController', [])
 
 		// CREATE ==================================================================
 		// when submitting the add form, send the text to the node API
-		$scope.createTodo = function() {
+		//登录账户
+		$scope.login = function() {
 
 			// validate the formData to make sure that something is there
 			// if form is empty, nothing will happen
@@ -66,7 +67,7 @@ angular.module('todoController', [])
 
 			// validate the formData to make sure that something is there
 			// if form is empty, nothing will happen
-			if ($scope.deposit != undefined) {
+			if ($scope.deposit_money != undefined) {
 				$scope.loading = true;
 				// call the create function from our service (returns a promise object)
 				var dataForm={
@@ -80,6 +81,30 @@ angular.module('todoController', [])
 						$scope.iuser=data[0];
 						$scope.deposit_money =undefined; // clear the form so our user is ready to enter another
 					});
+			}
+		};
+		//取款
+		$scope.withdraw = function() {
+
+			// validate the formData to make sure that something is there
+			// if form is empty, nothing will happen
+			if ($scope.withdraw_money != undefined) {
+				$scope.loading = true;
+				if($scope.withdraw_money>$scope.iuser.balance) {alert("余额不足")}
+				else{
+				// call the create function from our service (returns a promise object)
+				var dataForm={
+					"account":$scope.iuser.account,
+					"balance":$scope.iuser.balance-parseFloat($scope.withdraw_money)
+				};
+				Todos.create(dataForm)
+					// if successful creation, call our get function to get all the new todos
+					.success(function(data) {
+						$scope.loading = false;
+						$scope.iuser=data[0];
+						$scope.withdraw_money =undefined; // clear the form so our user is ready to enter another
+					});
+				}
 			}
 		};
 		// DELETE ==================================================================

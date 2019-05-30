@@ -39,6 +39,8 @@
 			<div>余额:{{ iuser.balance }}</div>
 			<input type="text" class="text-center" placeholder="输入存款金额" ng-model="deposit_money">
 			<button type="submit" class="btn btn-primary btn-lg" ng-click="deposit()">存款</button>
+			<input type="text" class="text-center" placeholder="输入存款金额" ng-model="withdraw_money">
+			<button type="submit" class="btn btn-primary btn-lg" ng-click="withdraw()">取款</button>
 		</div>
 
 		<!-- TODO LIST -->
@@ -67,7 +69,7 @@
 					<!-- createToDo() WILL CREATE NEW TODOS -->
 					<input type="text" class="text-center" placeholder="account" ng-model="login.account">
 					<input type="password" class="text-center " placeholder="password" ng-model="login.password">
-					<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">login</button>
+					<button type="submit" class="btn btn-primary btn-lg" ng-click="login()">login</button>
 					
 				</form>
 			</div>
