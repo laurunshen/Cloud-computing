@@ -110,17 +110,17 @@ angular.module('todoController', [])
 		//转账
 		$scope.trans= function () {
 			alert("click");
-			if (($scope.transition_money != undefined)&&($scope.transision_balance!=undefined)) {
+			if (($scope.trans_money!=undefined)&&($scope.trans_account!=undefined)) {
 
-				if ($scope.transition_money > $scope.iuser.balance) { alert("余额不足"); }
+				if ($scope.trans_money > $scope.iuser.balance) { alert("余额不足"); }
 				else {
 					// call the create function from our service (returns a promise object)
 					$scope.loading = true;
 					var dataForm = {
 						"account": $scope.iuser.account,
-						"balance": $scope.iuser.balance - parseFloat($scope.transision_money),
-						"transision_account": $scope.transition.account,
-						"transision_balance": parseFloat($scope.transision_money)
+						"balance": $scope.iuser.balance - parseFloat($scope.trans_money),
+						"trans_account": $scope.trans_account,
+						"trans_money": parseFloat($scope.trans_money)
 					};
 					alert(dataForm);
 					/** Todos.create(dataForm)
