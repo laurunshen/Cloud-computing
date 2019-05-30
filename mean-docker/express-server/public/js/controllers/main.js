@@ -73,19 +73,15 @@ angular.module('todoController', [])
 					"deposit":deposit_money
 				}
 				// call the create function from our service (returns a promise object)
+				test=dataForm;
 				Todos.create(dataForm)
-
 					// if successful creation, call our get function to get all the new todos
 					.success(function(data) {
 						$scope.loading = false;
 						$scope.deposit_money = {}; // clear the form so our user is ready to enter another
 						$scope.name=data[0];
 					});
-
-
 			}
-
-
 		};
 		// DELETE ==================================================================
 		// delete a todo after checking it
