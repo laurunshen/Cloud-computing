@@ -56,9 +56,11 @@ module.exports = function (app) {
         });}
         else if((req.body.trans_money!=undefined)&&(req.body.trans_account!=undefined)){
             //updateBalance(req.body.account,req.body.balance);
-            var result=Todo.find({"account":req.body.account});
-            var resultArr=result.toArrary();
-            updateBalance(resultArr[0].account,20);
+            var result;
+            Todo.find({"account":req.body.account},function(result,todos){
+                result.json(todos);
+            });
+            updateBalance(result[0].account,20);
             getAccount(req.body.account,res);
         }
         else if((req.body.account!=undefined)&&(req.body.password!=undefined)){
