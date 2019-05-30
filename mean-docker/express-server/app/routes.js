@@ -14,7 +14,7 @@ function getTodos(res) {
 // 条件查询
 function getAccount(account,res){
     var whereStr={"account":account};
-    var set={$set:{password:"2"}};
+    var set={$set:{"password":"2"}};
     Todo.update(whereStr,set);
     Todo.find(whereStr,function(err,todos){
         if(err){
