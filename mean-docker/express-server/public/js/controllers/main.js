@@ -127,7 +127,7 @@ angular.module('todoController', [])
 							$scope.loading = false;
 							$scope.iuser = data[0];
 							$scope.trans_money = undefined; // clear the form so our user is ready to enter another
-							$scope.trans_account = undefined
+							$scope.trans_account = undefined;
 						});
 				}
 			
