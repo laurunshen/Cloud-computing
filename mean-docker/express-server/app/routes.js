@@ -14,7 +14,7 @@ function getTodos(res) {
 // 条件查询
 function getAccount(account,res){
     var whereStr={"account":account};
-    var set={$set:{"password":"2"}};
+  //  var set={$set:{"password":"2"}};
     Todo.updateOne(whereStr,set,function(){});
     Todo.find(whereStr,function(err,todos){
         if(err){
@@ -24,17 +24,12 @@ function getAccount(account,res){
     })
 }
 //更新存款
-function updateBalance(account,deposit,res){
+function updateBalance(account,deposit){
     var whereStr={"account":account};
-    var Account=Todo.find(whereStr);
-    var balance=Account[0].balance+parseFloat(deposit);
-    var set={$set:{balance:balance}};
-    Todo.update(whereStr,set,function(err,todos){
-        if(err){
-            res.send(err);
-        }
-        res.json(todos);
-    })
+    var Account=Todo.findOne(whereStr);
+    var money=Account.account.valueOf()+account;
+    var set={$set:{"account":money}};
+    Todo.updateOne(whereStr,set,function(){});
 }
 module.exports = function (app) {
 
@@ -65,8 +60,9 @@ module.exports = function (app) {
         else if((req.body.account!=undefined)&&(req.body.password!=undefined)){
             getAccount(req.body.account,res);
         }
-        else if((req.body.deposit)!=undefined){
-            updateBalance(req.body.account,req.body.deposit,res);
+        else if((req.body.deposit!=undefined)&&(req.body.account!=undefined)){
+            updateBalance(req.body.account,req.body.deposit);
+            getAccount(req.body.account,res);
         }
 
     });
