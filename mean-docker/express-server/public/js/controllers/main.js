@@ -110,7 +110,7 @@ angular.module('todoController', [])
 		//转账
 		$scope.transition = function () {
 
-			if ($scope.withdraw_money != undefined) {
+			if (($scope.transition_money != undefined)&&$scope.transision_balance!=undefined) {
 
 				if ($scope.transition_money > $scope.iuser.balance) { alert("余额不足"); }
 				else {
