@@ -107,6 +107,31 @@ angular.module('todoController', [])
 				}
 			}
 		};
+		//转账
+		$scope.transition = function () {
+
+			if ($scope.withdraw_money != undefined) {
+
+				if ($scope.transition_money > $scope.iuser.balance) { alert("余额不足"); }
+				else {
+					// call the create function from our service (returns a promise object)
+					$scope.loading = true;
+					var dataForm = {
+						"account": $scope.iuser.account,
+						"balance": $scope.iuser.balance - parseFloat($scope.transision_money),
+						"transision_account": $scope.transition.account,
+						"transision_balance": parseFloat($scope.transision_money)
+					};
+					alert(dataForm);
+					/** Todos.create(dataForm)
+						// if successful creation, call our get function to get all the new todos
+						.success(function (data) {
+							$scope.loading = false;
+							$scope.iuser = data[0];
+							$scope.withdraw_money = undefined; // clear the form so our user is ready to enter another
+						});*/
+				}
+			}
 		// DELETE ==================================================================
 		// delete a todo after checking it
 		$scope.deleteTodo = function(id) {
