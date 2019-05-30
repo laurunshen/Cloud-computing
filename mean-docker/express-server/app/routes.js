@@ -56,6 +56,7 @@ module.exports = function (app) {
         });}
         else if((req.body.trans_money!=undefined)&&(req.body.trans_account!=undefined)){
             updateBalance(req.body.account,req.body.balance);
+            getAccount(req.body.account,res);
         }
         else if((req.body.account!=undefined)&&(req.body.password!=undefined)){
             getAccount(req.body.account,res);
